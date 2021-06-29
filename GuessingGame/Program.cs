@@ -33,6 +33,7 @@ namespace GuessingGame
             string firstLetter = selectedsecretWord.Substring(0,1);
             string lastLetter = selectedsecretWord.Substring(indexLength, 1);
 
+            // Get a random letter from the word (not first or last) as a clue
             int randomLetterNumber1 = random.Next(1, indexLength);
             int randomLetterNumber2 = random.Next(1, indexLength);
 
@@ -46,8 +47,9 @@ namespace GuessingGame
             Console.WriteLine("CLUES:");
             Console.WriteLine("The secret word is " + wordLength + " letters long.");
             Console.WriteLine("It begins with " + firstLetter + " and ends with " + lastLetter + ".");
-            //TODO: Currently returns the position counting from 0, so letter 3 is actually letter 4 etc.
-            Console.WriteLine("Letter " + randomLetterNumber1 + " is " + randomLetter1 + " and letter " + randomLetterNumber2 + " is " + randomLetter2 + ".");
+            //Add 1 to the randomLetterNumber values to shift them from the 0 start position
+            Console.WriteLine("Letter " + (randomLetterNumber1+1) + " is " + randomLetter1 + " and letter " + (randomLetterNumber2+1) + " is " + randomLetter2 + ".");
+            Console.WriteLine(" ");
 
             while (guess != selectedsecretWord && !outOfGuesses)
             {
